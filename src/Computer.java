@@ -4,15 +4,15 @@ import java.awt.*;
 public class Computer{
     private int x, y, width, height, ySpeed;
     private Color color;
-    public static int comScore;
+    //public static int comScore;
 
     public Computer(JPanel panel){
-        x = 450;
+        x = 480;
         y = 0;
         width = 20;
         height = 70;
-        ySpeed = 2;
-        color = new Color(255,255,255);
+        ySpeed = 1;
+        color = Color.WHITE;
     }
 
     public void drawPaddle(Graphics g){
@@ -21,11 +21,20 @@ public class Computer{
         g.fillRect(x, y, width, height);
     }
 
-    public void movePaddle(JPanel panel){
+    public void movePaddle(JPanel panel, int ballPos){
         y+=ySpeed;
-        if(y>=panel.getHeight() || y<= 0){
+        if(y>=panel.getHeight()-height || y <= 0){
             ySpeed *= -1;
         }
+
+        if(y>ballPos){
+            y-=ySpeed;
+        }
+        if(y<ballPos){
+            y+=ySpeed;
+        }
+        //y+=ySpeed;
+
     }
 
 
@@ -45,13 +54,13 @@ public class Computer{
         return height;
     }
 
-    public static void setComScore(int score){
-        comScore = score;
-    }
-
-    public static int getComScore(){
-        return comScore;
-    }
+//    public static void setComScore(int score){
+//        comScore = score;
+//    }
+//
+//    public static int getComScore(){
+//        return comScore;
+//    }
 
 
 

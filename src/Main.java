@@ -11,18 +11,18 @@ public class Main{
         PaddlePanel paddlePanel = new PaddlePanel();
 
 
-        paddlePanel.setLayout(new BorderLayout());
-        JLabel comScore = new JLabel(""+Computer.getComScore());
-        comScore.setFont(new Font("Calibri", Font.BOLD, 50));
-        comScore.setForeground(Color.WHITE);
-        comScore.setHorizontalAlignment(JLabel.CENTER);
-        paddlePanel.add(comScore, BorderLayout.SOUTH);
-
-        JLabel padScore = new JLabel(""+Paddle.getPadScore());
-        padScore.setFont(new Font("Calibri", Font.BOLD, 50));
-        padScore.setForeground(Color.BLUE);
-        padScore.setHorizontalAlignment(JLabel.CENTER);
-        paddlePanel.add(padScore, BorderLayout.NORTH);
+//        paddlePanel.setLayout(new BorderLayout());
+//        JLabel comScore = new JLabel("0");
+//        comScore.setFont(new Font("Calibri", Font.BOLD, 50));
+//        comScore.setForeground(Color.WHITE);
+//        comScore.setHorizontalAlignment(JLabel.CENTER);
+//        paddlePanel.add(comScore, BorderLayout.SOUTH);
+//
+//        JLabel padScore = new JLabel("0");
+//        padScore.setFont(new Font("Calibri", Font.BOLD, 50));
+//        padScore.setForeground(Color.BLUE);
+//        padScore.setHorizontalAlignment(JLabel.CENTER);
+//        paddlePanel.add(padScore, BorderLayout.NORTH);
 
 
 

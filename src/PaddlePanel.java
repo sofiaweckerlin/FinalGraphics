@@ -16,9 +16,10 @@ public class PaddlePanel extends JPanel{
     Computer pony;
     Ball ball;
     PaddlePanel me;
+    private int px,py,cx,cy,pw,ph,cw,ch,bx,by,bsize,pScore,cScore;
 
-    JLabel comScore = new JLabel(""+Computer.getComScore());
-    JLabel padScore = new JLabel(""+Paddle.getPadScore());
+    JLabel comScore = new JLabel("0");
+    JLabel padScore = new JLabel("0");
 
 
     public PaddlePanel(){
@@ -35,18 +36,9 @@ public class PaddlePanel extends JPanel{
         padScore.setForeground(Color.BLUE);
         padScore.setHorizontalAlignment(JLabel.CENTER);
 
-
-
         this.setLayout(new BorderLayout());
-
-
         this.add(comScore, BorderLayout.SOUTH);
         this.add(padScore, BorderLayout.NORTH);
-
-
-
-
-
 
         setFocusable(true);
         addKeyListener(new KeyListener() {
@@ -87,28 +79,28 @@ public class PaddlePanel extends JPanel{
         cat.drawPaddle(g);
         pony.drawPaddle(g);
         ball.drawBall(g);
-        pony.movePaddle(this);
+        pony.movePaddle(this, ball.findBallY());
         ball.moveBall(this);
 
-        int px = cat.findPaddleX();
-        int py = cat.findPaddleY();
-        int cx= pony.findComputerX();
-        int cy = pony.findComputerY();
-        int pw = cat.findPaddleW();
-        int ph = cat.findPaddleH();
-        int cw = pony.findComputerW();
-        int ch = pony.findComputerH();
-        int bx = ball.findBallX();
-        int by = ball.findBallY();
-        int bsize = ball.getSize();
-        int pScore = 0;
-        int cScore = 0;
+         px = cat.findPaddleX();
+         py = cat.findPaddleY();
+         cx= pony.findComputerX();
+         cy = pony.findComputerY();
+         pw = cat.findPaddleW();
+         ph = cat.findPaddleH();
+         cw = pony.findComputerW();
+         ch = pony.findComputerH();
+         bx = ball.findBallX();
+         by = ball.findBallY();
+         bsize = ball.getSize();
+         pScore = 0;
+         cScore = 0;
 
         if((px==bx) && (by>=py && by<=py+ph)){
-            ball.bounce(PaddlePanel.this);
-            pScore++;
+            ball.bounce(me);
+            pScore = pScore+1; //not updating, just staying at 1
             System.out.println(pScore);
-            Paddle.setPadScore(pScore);
+            //Paddle.setPadScore(pScore);
             padScore.setText(""+pScore);
             me.removeAll();
             me.add(comScore, BorderLayout.SOUTH);
@@ -116,9 +108,9 @@ public class PaddlePanel extends JPanel{
         }
 
         if((cx==bx) && (by>=cy && by<=cy+ch)){
-            ball.bounce(PaddlePanel.this);
+            ball.bounce(me);
             cScore++;
-            Computer.setComScore(cScore);
+            //Computer.setComScore(cScore);
             comScore.setText(""+cScore);
             me.removeAll();
             me.add(comScore, BorderLayout.SOUTH);

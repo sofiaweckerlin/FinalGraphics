@@ -3,10 +3,10 @@ import java.awt.*;
 public class Paddle{
     private int x, y, width, height, ySpeed;
     private Color color;
-    public static int padScore;
+    //public static int padScore;
 
     public Paddle(JPanel panel){
-        x = 10;
+        x = 0;
         y = 0;
         width = 20;
         height = 70;
@@ -53,12 +53,12 @@ public class Paddle{
         return height;
     }
 
-    public static void setPadScore(int score){
-        padScore = score;
-    }
-
-    public static int getPadScore(){
-        return padScore;
-    }
+//    public static void setPadScore(int score){
+//        padScore = score;
+//    }
+//
+//    public static int getPadScore(){
+//        return padScore;
+//    }
 
 }
