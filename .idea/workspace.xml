@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4c0882-3026-4d2b-8045-e5a0349a9471" name="Changes" comment="new computer format, bounce doesn't work, stuck at score 1">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Paddle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PaddlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PaddlePanel.java" afterDir="false" />
-    </list>
+    <list default="true" id="7d4c0882-3026-4d2b-8045-e5a0349a9471" name="Changes" comment="fixed a lot - need bigger score, proper hit on computer paddle, and reset method" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +56,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682198057758</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixed a lot - need bigger score, proper hit on computer paddle, and reset method">
+      <created>1683591227376</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683591227376</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -85,6 +86,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial" />
     <MESSAGE value="new computer format, bounce doesn't work, stuck at score 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="new computer format, bounce doesn't work, stuck at score 1" />
+    <MESSAGE value="fixed a lot - need bigger score, proper hit on computer paddle, and reset method" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed a lot - need bigger score, proper hit on computer paddle, and reset method" />
   </component>
 </project>
