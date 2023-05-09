@@ -18,8 +18,8 @@ public class PaddlePanel extends JPanel{
     PaddlePanel me;
     private int px,py,cx,cy,pw,ph,cw,ch,bx,by,bsize,pScore,cScore;
 
-    JLabel comScore = new JLabel("0");
-    JLabel padScore = new JLabel("0");
+//    JLabel comScore = new JLabel("0");
+//    JLabel padScore = new JLabel("0");
 
 
     public PaddlePanel(){
@@ -27,18 +27,20 @@ public class PaddlePanel extends JPanel{
         cat = new Paddle(this);
         pony = new Computer(this);
         ball = new Ball(this);
-        me = this;
-
-        comScore.setFont(new Font("Calibri", Font.BOLD, 50));
-        comScore.setForeground(Color.WHITE);
-        comScore.setHorizontalAlignment(JLabel.CENTER);
-        padScore.setFont(new Font("Calibri", Font.BOLD, 50));
-        padScore.setForeground(Color.BLUE);
-        padScore.setHorizontalAlignment(JLabel.CENTER);
-
-        this.setLayout(new BorderLayout());
-        this.add(comScore, BorderLayout.SOUTH);
-        this.add(padScore, BorderLayout.NORTH);
+        pScore = 0;
+        cScore = 0;
+//        me = this;
+//
+//        comScore.setFont(new Font("Calibri", Font.BOLD, 50));
+//        comScore.setForeground(Color.WHITE);
+//        comScore.setHorizontalAlignment(JLabel.CENTER);
+//        padScore.setFont(new Font("Calibri", Font.BOLD, 50));
+//        padScore.setForeground(Color.BLUE);
+//        padScore.setHorizontalAlignment(JLabel.CENTER);
+//
+//        this.setLayout(new BorderLayout());
+//        this.add(comScore, BorderLayout.SOUTH);
+//        this.add(padScore, BorderLayout.NORTH);
 
         setFocusable(true);
         addKeyListener(new KeyListener() {
@@ -76,46 +78,62 @@ public class PaddlePanel extends JPanel{
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
 
+
+        g.setColor(Color.WHITE);
+        g.drawString(""+pScore, 250, 10);
+        g.drawString(""+cScore, 250, 490);
+
         cat.drawPaddle(g);
         pony.drawPaddle(g);
         ball.drawBall(g);
         pony.movePaddle(this, ball.findBallY());
+        //pony.bounceComputer(this);
         ball.moveBall(this);
 
-         px = cat.findPaddleX();
-         py = cat.findPaddleY();
-         cx= pony.findComputerX();
-         cy = pony.findComputerY();
-         pw = cat.findPaddleW();
-         ph = cat.findPaddleH();
-         cw = pony.findComputerW();
-         ch = pony.findComputerH();
-         bx = ball.findBallX();
-         by = ball.findBallY();
-         bsize = ball.getSize();
-         pScore = 0;
-         cScore = 0;
-
-        if((px==bx) && (by>=py && by<=py+ph)){
-            ball.bounce(me);
-            pScore = pScore+1; //not updating, just staying at 1
-            System.out.println(pScore);
-            //Paddle.setPadScore(pScore);
-            padScore.setText(""+pScore);
-            me.removeAll();
-            me.add(comScore, BorderLayout.SOUTH);
-            me.add(padScore, BorderLayout.NORTH);
-        }
-
-        if((cx==bx) && (by>=cy && by<=cy+ch)){
-            ball.bounce(me);
+        if(pony.ifHit(ball)){
+            ball.bounce(this);
             cScore++;
-            //Computer.setComScore(cScore);
-            comScore.setText(""+cScore);
-            me.removeAll();
-            me.add(comScore, BorderLayout.SOUTH);
-            me.add(padScore, BorderLayout.NORTH);
         }
+        if(cat.ifHit(ball)){
+            ball.bounce(this);
+            pScore++;
+        }
+
+
+//         px = cat.findPaddleX();
+//         py = cat.findPaddleY();
+//         cx= pony.findComputerX();
+//         cy = pony.findComputerY();
+//         pw = cat.findPaddleW();
+//         ph = cat.findPaddleH();
+//         cw = pony.findComputerW();
+//         ch = pony.findComputerH();
+//         bx = ball.findBallX();
+//         by = ball.findBallY();
+//         bsize = ball.getSize();
+//         pScore = 0;
+//         cScore = 0;
+//
+//        if((px==bx) && (by>=py && by<=py+ph)){
+//            ball.bounce(me);
+//            pScore = pScore+1; //not updating, just staying at 1
+//            System.out.println(pScore);
+//            //Paddle.setPadScore(pScore);
+//            padScore.setText(""+pScore);
+//            me.removeAll();
+//            me.add(comScore, BorderLayout.SOUTH);
+//            me.add(padScore, BorderLayout.NORTH);
+//        }
+//
+//        if((cx==bx) && (by>=cy && by<=cy+ch)){
+//            ball.bounce(me);
+//            cScore++;
+//            //Computer.setComScore(cScore);
+//            comScore.setText(""+cScore);
+//            me.removeAll();
+//            me.add(comScore, BorderLayout.SOUTH);
+//            me.add(padScore, BorderLayout.NORTH);
+//        }
 
 
         try{

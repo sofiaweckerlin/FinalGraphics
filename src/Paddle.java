@@ -37,6 +37,18 @@ public class Paddle{
     }
 
 
+    public boolean ifHit(Ball ball){
+        int rightX = x+width;
+        int rightY = y+height;
+        if(ball.findBallX() > x && ball.findBallX() < rightX){
+            if(ball.findBallY() > y && ball.findBallY() < rightY){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public int findPaddleX(){
         return x;
     }

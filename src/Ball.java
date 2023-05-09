@@ -8,7 +8,7 @@ public class Ball{
     public Ball(JPanel panel){
         x = 250;
         y = (int)(Math.random()*450)+1;
-        size = 30;
+        size = 20;
         // xSpeed = (int)(Math.random()*3);
         // ySpeed = (int)(Math.random()*3);
         xSpeed = 1;
